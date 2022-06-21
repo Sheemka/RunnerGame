@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (_startSpawnDelay >= 0.5f)
         {
-            _startSpawnDelay -= Time.deltaTime / 500;
+            _startSpawnDelay -= Time.deltaTime / 300;
         }
-    }
+    } 
 }

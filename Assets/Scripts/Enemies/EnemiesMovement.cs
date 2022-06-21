@@ -10,7 +10,7 @@ public class EnemiesMovement : MonoBehaviour
         transform.Translate(_direction.normalized * _speed);
         if (_speed <= 0.5f)
         {
-            _speed += Time.deltaTime / 500;
+            _speed += Time.deltaTime / 300;
         }
 
         if (transform.position.x <= -10f)
