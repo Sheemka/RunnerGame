@@ -6,7 +6,7 @@ public class SwordAttack : MonoBehaviour
     public Transform attackPoint;
     public LayerMask enemyLayer;
 
-    public float attackRange = 2f;
+    public float attackRange = 1.7f;
     
     void Start()
     {

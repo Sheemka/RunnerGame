@@ -5,7 +5,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private float _jumpForce = 8f;
     [SerializeField] private float _fallMultiplier = 1.5f;
 
-    private bool _isGrounded;
+    public static bool _isGrounded;
 
     private Rigidbody2D _rigidBody;
 
