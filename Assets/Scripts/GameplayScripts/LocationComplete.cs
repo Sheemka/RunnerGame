@@ -9,6 +9,9 @@ public class LocationComplete : MonoBehaviour
     public float levelCompleteness;
 
     public EnemySpawner spawner;
+    public AnimationPlayer playerAnim;
+    public MovingBackGround background;
+    public MovingGround ground;
 
     private void Start()
     {
@@ -37,5 +40,8 @@ public class LocationComplete : MonoBehaviour
     private void StartBossFight()
     {
         spawner.enabled = false;
+        background._speed = 0f;
+        ground._speed = 0f;
+        playerAnim.StartBossFight();
     }
 }

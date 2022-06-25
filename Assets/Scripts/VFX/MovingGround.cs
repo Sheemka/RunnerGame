@@ -2,13 +2,14 @@ using UnityEngine;
 //здесь просто двигаю фон до определенной точки, после чего повторяю это
 public class MovingGround : MonoBehaviour
 {
-    private float _speed = 5f;
+    public float _speed;
     private float _GroundSize;
     private float _GroundPos;
     private Transform _groundTransform;
 
     private void Start()
     {
+        _speed = 5f;
         _groundTransform = GetComponent<Transform>();
         _GroundSize = GetComponent<SpriteRenderer>().bounds.size.x;
     }

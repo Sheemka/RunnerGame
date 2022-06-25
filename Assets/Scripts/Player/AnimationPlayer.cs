@@ -14,4 +14,9 @@ public class AnimationPlayer : MonoBehaviour
     {
         animator.SetBool("IsGrounded", PlayerControls._isGrounded);
     }
+
+    public void StartBossFight()
+    {
+        animator.SetBool("bossFight", true);
+    }
 }

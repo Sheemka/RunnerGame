@@ -3,13 +3,14 @@ using UnityEngine;
 //идентичен движению пола
 public class MovingBackGround : MonoBehaviour
 {
-    private float _speed = 5f;
+    public float _speed;
     private float _backGroundSize;
     private float _backGroundPos;
     private Transform _backgroundTransform;
 
     private void Start()
     {
+        _speed = 5f;
         _backgroundTransform = GetComponent<Transform>();
         _backGroundSize = GetComponent<SpriteRenderer>().bounds.size.x;
     }
