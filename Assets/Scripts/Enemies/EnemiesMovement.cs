@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//скрипт дл€ движени€ врагов в одном направлении
 public class EnemiesMovement : MonoBehaviour
 {
     [SerializeField] private Vector2 _direction;

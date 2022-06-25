@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//идентичен движению пола
 public class MovingBackGround : MonoBehaviour
 {
     private float _speed = 5f;

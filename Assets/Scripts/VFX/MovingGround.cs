@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//здесь просто двигаю фон до определенной точки, после чего повторяю это
 public class MovingGround : MonoBehaviour
 {
     private float _speed = 5f;

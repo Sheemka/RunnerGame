@@ -1,11 +1,14 @@
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameOver : MonoBehaviour
 {
+    private TextMeshProUGUI gameOverText;
+
     public void GameOverBlyat()
     {
-        SceneManager.LoadScene("Main Menu");
+        gameOverText = GetComponent<TextMeshProUGUI>();
+        gameOverText.enabled = true;
+        LoadingScreen.StartLoading("Main Menu");
     }
 }

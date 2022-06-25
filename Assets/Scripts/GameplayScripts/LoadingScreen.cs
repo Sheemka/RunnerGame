@@ -3,8 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScreen : MonoBehaviour
 {
+    //это нужно для асинхронной загрузки сцен 
     public AsyncOperation loadingScene;
     private Animator animator;
+    //это почти синглтон, полезная иногда штука, почитай
     private static LoadingScreen instance;
     private static bool shouldLoad = false;
 

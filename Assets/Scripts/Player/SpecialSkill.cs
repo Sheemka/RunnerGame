@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
+//здесь описываю поведение для суператаки или типа того
 public class SpecialSkill : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI skillAmmountText;
@@ -24,8 +24,8 @@ public class SpecialSkill : MonoBehaviour
     {
         skillAmmount++;
         skillAmmountText.enabled = true;
-        animator.SetTrigger("isReady");
         specialAbility.enabled = true;
+        animator.SetTrigger("isReady");
     }
 
     public void UseSkill()

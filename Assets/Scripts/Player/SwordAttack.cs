@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class SwordAttack : MonoBehaviour
 {
     private Animator animator;
@@ -20,8 +19,10 @@ public class SwordAttack : MonoBehaviour
     {
         animator.SetTrigger("Attack");
 
+        //создаю массив на основе того, сколько противников попало в область удара ->
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-
+        
+        //чтобы здесь каждому врагу нанести урон, за каждого врага получить хп от вампирика и повысить счетчик комбо
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyKilled>().EnemyKill();
@@ -30,6 +31,7 @@ public class SwordAttack : MonoBehaviour
         }
     }
 
+    //функция для рисования окружности вокруг пустышки на мече (в этой области наносится урон)
     private void OnDrawGizmosSelected()
     {
         if (attackPoint == null)

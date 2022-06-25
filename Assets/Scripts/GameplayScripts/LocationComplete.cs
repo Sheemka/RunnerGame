@@ -20,6 +20,7 @@ public class LocationComplete : MonoBehaviour
         UpdateLC();
     }
 
+    //слайдер для того, сколько осталось до босса и проверка на начало боссфайта
     private void UpdateLC()
     {
         if (levelCompleteness < endLevel)

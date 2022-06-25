@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//скрипт для анимаций игрока, чтобы не засорять другие скрипты
 public class AnimationPlayer : MonoBehaviour
 {
     private Animator animator;

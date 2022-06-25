@@ -31,26 +31,32 @@ public class PlayerHPSP : MonoBehaviour
 
     private void Update()
     {
-        currentHP = Mathf.Clamp(currentHP, 0, _maxHP);
+        //currentHP = Mathf.Clamp(currentHP, 0, _maxHP); € слабо помню дл€ чего нужна эта строчка, но без нее код работает также, почитай пж
+
+        //регенераци€ стамины
         if (currentSP < _maxSP)
         {
             currentSP += Time.deltaTime * staminaGrow;
         }
 
+        //вызов фукнций дл€ отображени€ индикаторов хп и стамины на экране
         UpdateSP();
         UpdateHP();
 
+        //врем€ неу€звимости, чтобы игрок не получал урон от того, что застр€л в хитбоксе, лучше это написать через корутину, но € что-то затупил, можешь переписать
         if (immortalityTimer > 0)
         {
             immortalityTimer -= Time.deltaTime / 2;
         }
 
+        //это просто проверка на то, что хп не выходит за границы, это можно написать получше, но € не помню как, если найдешь, то напиши
         if (currentHP > _maxHP)
         {
             currentHP = _maxHP;
         }
     }
 
+    //тут прописаны вот эти красивые переходы дл€ хп и стамины
     private void UpdateHP()
     {
         float fillF = frontHPBar.fillAmount;
@@ -109,6 +115,7 @@ public class PlayerHPSP : MonoBehaviour
         }
     }
 
+    //при стыковке коллайдеров врага и игрока - игрок получит урон
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
