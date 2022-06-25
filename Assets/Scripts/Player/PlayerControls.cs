@@ -9,9 +9,12 @@ public class PlayerControls : MonoBehaviour
 
     private Rigidbody2D _rigidBody;
 
+    public PlayerHPSP playerStats;
+
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
+        playerStats = GetComponent<PlayerHPSP>();
     }
 
     private void Update()
@@ -29,6 +32,11 @@ public class PlayerControls : MonoBehaviour
             _isGrounded = false;
             _rigidBody.velocity = new Vector2(0, _jumpForce);
         }
+    }
+
+    public void Attack()
+    {
+        playerStats.TakeStamina(30f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

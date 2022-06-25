@@ -12,14 +12,16 @@ public class PlayerHPSP : MonoBehaviour
     private float lerpTimer;
     private float staminaGrow = 10;
     private float enemyDamage = 20f;
-    public float immortalityTimer;
+    private float immortalityTimer;
 
     public Image frontHPBar;
     public Image backHPBar;
     public Image frontSPBar;
     public Image backSPBar;
 
-    public SwordAttack SwordComp;  
+    public SwordAttack swordAttack;
+    public GameOver gameOver;
+    public Combo combo;
 
     private void Start()
     {
@@ -113,12 +115,7 @@ public class PlayerHPSP : MonoBehaviour
         {
             TakeDamage(enemyDamage);
         }
-    }
-
-    public void Attack()
-    {
-        TakeStamina(30f);     
-    }
+    }  
 
     public void TakeDamage(float damage)
     {
@@ -127,17 +124,31 @@ public class PlayerHPSP : MonoBehaviour
             currentHP -= damage;
             lerpTimer = 0f;
             immortalityTimer = 1f;
+            combo.comboInt = 0;
+            if (currentHP <= 0)
+            {
+                gameOver.GameOverBlyat();
+            }
         }
     }
 
-    private void TakeStamina(float spCost)
+    public void TakeStamina(float spCost)
     {
         if (currentSP >= spCost)
         {
             currentSP -= spCost;
             lerpTimer = 0f;
 
-            SwordComp.AttackPlayAnimation();
+            swordAttack.AttackPlayAnimation();
         }  
+    }
+
+    public void TakeHP(float vampiricAmmount)
+    {
+        currentHP += vampiricAmmount;
+        if (currentHP > _maxHP)
+        {
+            currentHP = _maxHP;
+        }
     }
 }

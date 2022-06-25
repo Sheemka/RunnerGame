@@ -6,7 +6,9 @@ public class LocationComplete : MonoBehaviour
     [SerializeField] private Image backLCBar;
 
     private float endLevel = 100f;
-    private float levelCompleteness;
+    public float levelCompleteness;
+
+    public EnemySpawner spawner;
 
     private void Start()
     {
@@ -22,8 +24,8 @@ public class LocationComplete : MonoBehaviour
     {
         if (levelCompleteness < endLevel)
         {
-            levelCompleteness += Time.deltaTime / 100;
-            backLCBar.fillAmount = levelCompleteness;
+            levelCompleteness += Time.deltaTime;
+            backLCBar.fillAmount = levelCompleteness / 100;
         }
         else
         {
@@ -33,6 +35,6 @@ public class LocationComplete : MonoBehaviour
 
     private void StartBossFight()
     {
-
+        spawner.enabled = false;
     }
 }

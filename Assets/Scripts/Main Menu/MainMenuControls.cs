@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenuControls : MonoBehaviour
 {
     [SerializeField] private string newGameLevel = "Level";
-    public void newGame()
+
+    public void loadScene()
     {
-        SceneManager.LoadScene(newGameLevel);
+        LoadingScreen.StartLoading(newGameLevel);
     }
 }

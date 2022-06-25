@@ -3,10 +3,13 @@ using UnityEngine;
 public class SwordAttack : MonoBehaviour
 {
     private Animator animator;
-    public Transform attackPoint;
-    public LayerMask enemyLayer;
+    private float vampiricAmmount = 5;
+    private float attackRange = 1.7f;
 
-    public float attackRange = 1.7f;
+    public LayerMask enemyLayer;
+    public Transform attackPoint;
+    public PlayerHPSP playerStats;
+    public Combo combo;
     
     void Start()
     {
@@ -22,6 +25,8 @@ public class SwordAttack : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyKilled>().EnemyKill();
+            playerStats.TakeHP(vampiricAmmount);
+            combo.IncreaseCombo();
         }
     }
 
