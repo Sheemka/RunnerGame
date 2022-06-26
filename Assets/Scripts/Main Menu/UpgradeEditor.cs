@@ -17,6 +17,8 @@ public class UpgradeEditor : Editor
 
         index = EditorGUILayout.Popup(index, options);
 
+        statsIncreaseAmmount = EditorGUILayout.FloatField("Upgrade stat by: ", statsIncreaseAmmount);
+
         if (GUILayout.Button("Increase"))
         {
             IncreaseChosenStats();
